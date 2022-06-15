@@ -43,10 +43,16 @@ function Menu(config){
         var _style = {
             maxHeight: 'calc(100vh - ' + _top + ')',
             overflow: 'hidden',
-            transition: 'all .5s'
+            transition: 'all .5s',
+        }
+        var btnstyle = {
+            transform: 'rotate(90deg)',
+            transition: 'all .5s',
         }
 
+        
         ApplyStyleToNav(_style)
+        ApplyStyleToBtn(btnstyle)
 
         _opened = true;
     }
@@ -56,16 +62,27 @@ function Menu(config){
             _this.nav.style[stl] = _style[stl]
         })
     }
+    function ApplyStyleToBtn(btnstyle){
+        Object.keys(btnstyle).forEach( stl => {
+            _this.btn.style[stl] = btnstyle[stl]
+        })
+    }
 
     function closeMenu(){
         var _style = {
             maxHeight: '0px',
             overflow: 'hidden',
-            transition: 'all .5s'
-
+            transition: 'all .5s',
+        }
+        var btnstyle = {
+            transform: 'rotate(0deg)',
+            transition: 'all .5s',
         }
 
+        
         ApplyStyleToNav(_style)
+        ApplyStyleToBtn(btnstyle)
+
 
         _opened = false;
     }
